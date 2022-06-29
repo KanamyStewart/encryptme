@@ -41,7 +41,7 @@ namespace Models
             {
                 return false;
             }
-            Tag it = (Tag) obj;
+            Tag it = (Tag)obj;
             return it.Id == this.Id;
         }
 
@@ -74,8 +74,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<Tag> tags = from Tag in db.Tags
-                            where Tag.Id == Id
-                            select Tag;
+                                    where Tag.Id == Id
+                                    select Tag;
 
             return tags.First();
         }

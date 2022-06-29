@@ -43,7 +43,7 @@ namespace Models
             {
                 return false;
             }
-            Categoria it = (Categoria) obj;
+            Categoria it = (Categoria)obj;
             return it.Id == this.Id;
         }
 
@@ -78,8 +78,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<Categoria> categorias = from Categoria in db.Categorias
-                            where Categoria.Id == Id
-                            select Categoria;
+                                                where Categoria.Id == Id
+                                                select Categoria;
 
             return categorias.First();
         }

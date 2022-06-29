@@ -62,7 +62,7 @@ namespace Models
             {
                 return false;
             }
-            Senha it = (Senha) obj;
+            Senha it = (Senha)obj;
             return it.Id == this.Id;
         }
 
@@ -106,8 +106,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<Senha> senhas = from Senha in db.Senhas
-                            where Senha.Id == Id
-                            select Senha;
+                                        where Senha.Id == Id
+                                        select Senha;
 
             return senhas.First();
         }
