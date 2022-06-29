@@ -11,7 +11,7 @@ namespace Models
         public Senha Senha { get; set; }
         public int TagId { get; set; }
         public Tag Tag { get; set; }
-        
+
 
         public SenhaTag() { }
 
@@ -46,7 +46,7 @@ namespace Models
             {
                 return false;
             }
-            SenhaTag it = (SenhaTag) obj;
+            SenhaTag it = (SenhaTag)obj;
             return it.Id == this.Id;
         }
 
@@ -68,8 +68,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<SenhaTag> senhaTags = from SenhaTag in db.SenhaTags
-                            where SenhaTag.SenhaId == SenhaId && SenhaTag.TagId == TagId
-                            select SenhaTag;
+                                              where SenhaTag.SenhaId == SenhaId && SenhaTag.TagId == TagId
+                                              select SenhaTag;
 
             return senhaTags.First();
         }
@@ -78,8 +78,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<SenhaTag> senhaTags = from SenhaTag in db.SenhaTags
-                            where SenhaTag.Id == Id
-                            select SenhaTag;
+                                              where SenhaTag.Id == Id
+                                              select SenhaTag;
 
             return senhaTags.First();
         }
@@ -88,8 +88,8 @@ namespace Models
         {
             Context db = new Context();
             return (from SenhaTag in db.SenhaTags
-                            where SenhaTag.SenhaId == SenhaId
-                            select SenhaTag);
+                    where SenhaTag.SenhaId == SenhaId
+                    select SenhaTag);
         }
 
         public static void RemoverSenhaTag(SenhaTag tag)

@@ -33,10 +33,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"\n ---------------------------------------"
-                + $"\n ID: {this.Id}"
-                + $"\n Nome: {this.Nome}"
-                + $"\n Email: {this.Email}";
+            return this.Nome;
         }
 
         public override bool Equals(object obj)
@@ -49,7 +46,7 @@ namespace Models
             {
                 return false;
             }
-            Usuario it = (Usuario) obj;
+            Usuario it = (Usuario)obj;
             return it.Id == this.Id;
         }
 
@@ -86,8 +83,8 @@ namespace Models
         {
             Context db = new Context();
             IEnumerable<Usuario> usuarios = from Usuario in db.Usuarios
-                            where Usuario.Id == Id
-                            select Usuario;
+                                            where Usuario.Id == Id
+                                            select Usuario;
 
             return usuarios.First();
         }
@@ -102,11 +99,11 @@ namespace Models
         public static void Auth(string Email, string Senha)
         {
             Usuario usuario = GetUsuarios()
-                .Where(it => it.Email == Email 
+                .Where(it => it.Email == Email
                     && BCrypt.Net.BCrypt.Verify(Senha, it.Senha)
                 )
                 .First();
-            
+
             UsuarioAuth = usuario;
         }
     }
