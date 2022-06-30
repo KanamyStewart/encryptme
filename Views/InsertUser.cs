@@ -50,6 +50,7 @@ namespace Views
             this.txtSenha = new TextBox();
             this.txtSenha.Location = new Point(60, 170);
             this.txtSenha.Size = new Size(180, 20);
+            this.txtSenha.PasswordChar = '*';
 
             this.btnConfirmar = new lib.Campos.ButtonField("Confirmar", 100, 200, 100, 30);
             btnConfirmar.Click += new EventHandler(this.btnConfirmarClick);

@@ -54,6 +54,7 @@ namespace Views
 
             this.lblSenha = new Campos.LabelField("Senha:", 25, 370);
             this.txtSenha = new Campos.TextBoxField(25, 400, 250, 200);
+            this.txtSenha.PasswordChar = '*';
 
             this.lblProcedimento = new Campos.LabelField("Procedimento:", 25, 440);
             this.txtProcedimento = new Campos.TextBoxField(25, 470, 250, 200);
@@ -107,10 +108,10 @@ namespace Views
 
         public void btnConfirmarClick(object sender, EventArgs e)
         {
-            string[] categoria = this.cbCategoria.Text.Split('-');
             try
             {
-                PasswordController.InsertPassword(this.txtNome.Text, Convert.ToInt32(categoria[0].Trim()), this.txtUrl.Text, this.txtUser.Text, this.txtSenha.Text, this.txtProcedimento.Text);
+                string[] categoria = this.cbCategoria.Text.Split('-');
+                PasswordController.InsertPassword(this.txtNome.Text, Convert.ToInt32(categoria[0]), this.txtUrl.Text, this.txtUser.Text, this.txtSenha.Text, this.txtProcedimento.Text);
                 MessageBox.Show("Senha cadastrada com sucesso");
             }
             catch (System.Exception)

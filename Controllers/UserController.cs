@@ -24,6 +24,10 @@ namespace Controllers
             {
                 throw new Exception("Sua senha deve ter no minimo 8 dígitos");
             }
+            else
+            {
+                Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+            }
 
             return new Usuario(Nome, Email, Senha);
         }

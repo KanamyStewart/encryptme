@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using lib;
 using Models;
 using Controllers;
-using System.Drawing;
 
 namespace Views
 {
@@ -64,6 +63,7 @@ namespace Views
             this.lblSenha = new Label();
             this.lblSenha = new Campos.LabelField("Senha:", 25, 370);
             this.txtSenha = new Campos.TextBoxField(25, 400, 250, 200);
+            this.txtSenha.PasswordChar = '*';
 
             this.lblProcedimento = new Label();
             this.lblProcedimento = new Campos.LabelField("Procedimento:", 25, 440);
@@ -119,10 +119,9 @@ namespace Views
 
         public void btnConfirmarClick(object sender, EventArgs e)
         {
-            string[] categoria = this.cbCategoria.Text.Split('-');
-
             try
             {
+                string[] categoria = this.cbCategoria.Text.Split('-');
                 PasswordController.UpdatePassword(Id, this.txtNome.Text, Convert.ToInt32(categoria[0].Trim()), this.txtUrl.Text, this.txtUser.Text, this.txtSenha.Text, this.txtProcedimento.Text);
                 MessageBox.Show("Senha atualizada com sucesso");
             }

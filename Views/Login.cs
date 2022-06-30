@@ -37,22 +37,18 @@ namespace Views
 
         private void handleConfirmClick(object sender, EventArgs e)
         {
-            DialogResult result;
-
-            result = MessageBox.Show(
-                $"Usuário: {this.fieldUser.textField.Text}",
-                "Titulo da Mensagem",
-                MessageBoxButtons.YesNo
-            );
-
-            if (result == DialogResult.Yes)
+             try
             {
-                Menu Menus = new Menu();
-                Menus.ShowDialog();
+                Usuario.Auth(this.fieldUser.textField.Text, this.fieldPass.textField.Text);
+                if(Usuario.UsuarioAuth != null)
+                {
+                    Menu menu = new Menu();
+                    menu.ShowDialog(); 
+                }
             }
-            else
+            catch(Exception)
             {
-                Console.WriteLine("Clicou não");
+                MessageBox.Show("Login ou Senha incorreta.");
             }
         }
 

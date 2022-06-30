@@ -47,7 +47,7 @@ namespace Views
             this.btnInserir = new ButtonField("Inserir", 50, 380, 100, 30);
             btnInserir.Click += new EventHandler(this.btnInserirClick);
 
-            this.btnUpdate = new ButtonField("Update", 150, 380, 100, 30);
+            this.btnUpdate = new ButtonField("Editar", 150, 380, 100, 30);
             btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             this.btnDelete = new ButtonField("Delete", 250, 380, 100, 30);

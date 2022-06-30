@@ -36,7 +36,6 @@ namespace lib
             {
                 this.Location = new Point(X, Y);
                 this.Size = new Size(Height, Width);
-                this.ForeColor = System.Drawing.Color.Purple;
             }
         }
 

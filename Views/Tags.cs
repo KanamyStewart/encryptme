@@ -38,7 +38,7 @@ namespace Views
             this.btnInserir = new ButtonField("Inserir", 50, 380, 100, 30);
             btnInserir.Click += new EventHandler(this.btnInserirClick);
 
-            this.btnUpdate = new ButtonField("Atualizar", 150, 380, 100, 30);
+            this.btnUpdate = new ButtonField("Editar", 150, 380, 100, 30);
             btnUpdate.Click += new EventHandler(this.btnUpdateClick);
 
             this.btnDelete = new ButtonField("Delete", 250, 380, 100, 30);
@@ -91,8 +91,8 @@ namespace Views
                     if (lstTags.SelectedItems.Count > 0)
                     {
                         ListViewItem li = lstTags.SelectedItems[0];
-                        MessageBox.Show("Tag" + li.Text + " foi deletado com sucesso!", "Sucesso");
                         TagController.DeleteTag(Convert.ToInt32(li.Text));
+                        MessageBox.Show("Tag" + li.Text + " foi deletado com sucesso!", "Sucesso");
                     }
                 }
                 catch (Exception)
